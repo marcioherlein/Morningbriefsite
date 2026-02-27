@@ -1,128 +1,130 @@
 import { useState, useEffect } from "react";
-import PortfolioTab from "./components/PortfolioTab";
-import MarketsTab from "./components/MarketsTab";
+import OverviewTab   from "./components/OverviewTab";
+import PortfolioTab  from "./components/PortfolioTab";
+import MarketsTab    from "./components/MarketsTab";
+import RegulationTab from "./components/RegulationTab";
+import CountryTab    from "./components/CountryTab";
+import SapTab        from "./components/SapTab";
 
-const TABS = ["Overview", "Portfolio", "Markets", "Regulation", "Countries", "SAP"];
+const TABS = [
+  { id: "overview",    label: "Overview",    icon: "🌅" },
+  { id: "portfolio",   label: "Portfolio",   icon: "💼" },
+  { id: "markets",     label: "Markets",     icon: "📊" },
+  { id: "regulation",  label: "Regulation",  icon: "⚖️" },
+  { id: "country",     label: "Country",     icon: "🌐" },
+  { id: "sap",         label: "SAP",         icon: "🔷" },
+];
+
+function fmt(n, d = 0) {
+  if (n == null) return "—";
+  return n.toLocaleString("es-AR", { maximumFractionDigits: d });
+}
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState("Portfolio");
-  const [data, setData] = useState(null);
+  const [activeTab, setActiveTab] = useState("overview");
+  const [data,    setData]    = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error,   setError]   = useState(null);
 
   useEffect(() => {
     fetch("/data.json")
-      .then((r) => r.json())
-      .then((d) => { setData(d); setLoading(false); })
-      .catch((e) => { setError(e.message); setLoading(false); });
+      .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
+      .then(d  => { setData(d); setLoading(false); })
+      .catch(e => { setError(e.message); setLoading(false); });
   }, []);
 
+  const meta    = data?.meta;
+  const usdMep  = data?.fx?.usd_mep;
+  const session = meta?.session;
+
+  function switchTab(id) {
+    setActiveTab(id);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   return (
-    <div className="min-h-screen bg-white font-sans">
-      {/* Header */}
-      <div className="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
-        <div className="max-w-4xl mx-auto px-4 py-4">
-          <div className="flex items-center justify-between mb-4">
+    <div className="min-h-screen">
+      {/* ── Header ── */}
+      <header className="bg-white/85 backdrop-blur-xl border-b border-black/[0.06] sticky top-0 z-50">
+        <div className="max-w-5xl mx-auto px-6 pt-6 pb-0">
+          <div className="flex items-center justify-between mb-6">
             <div>
-              <h1 className="text-xl font-bold text-gray-900">Morning Brief</h1>
-              <p className="text-xs text-gray-500">
-                {data?.meta?.updated_at || "Loading..."}
-                {data?.meta?.session === "morning" ? " · Pre-market" : " · Post-close"}
-              </p>
+              <div className="text-[30px] font-semibold text-gray-900 tracking-tight leading-tight">
+                Morning Brief
+              </div>
+              <div className="text-sm text-gray-400 mt-1">
+                {meta?.updated_at
+                  ? `${meta.updated_at} · ${session === "morning" ? "Pre-market" : "Post-close"}`
+                  : "Friday, February 27, 2026 · Buenos Aires, ART"}
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              {data?.fx?.usd_mep && (
-                <span className="bg-blue-50 text-blue-700 text-xs font-semibold px-2 py-1 rounded-lg">
-                  MEP ${data.fx.usd_mep.toLocaleString("es-AR")}
-                </span>
+            <div className="flex items-center gap-3">
+              {usdMep && (
+                <div className="bg-blue-50 text-blue-700 text-xs font-semibold px-3 py-1.5 rounded-full">
+                  MEP ${fmt(usdMep)}
+                </div>
               )}
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600
+                              flex items-center justify-center text-2xl shadow-lg shadow-blue-500/30">
+                ☀️
+              </div>
             </div>
           </div>
-          {/* Tab bar */}
-          <div className="flex gap-1 overflow-x-auto pb-1 scrollbar-hide">
-            {TABS.map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`px-3 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
-                  activeTab === tab
-                    ? "bg-blue-600 text-white shadow-sm"
-                    : "text-gray-500 hover:text-gray-900 hover:bg-gray-100"
-                }`}
-              >
-                {tab}
+
+          {/* Tab nav */}
+          <nav className="flex gap-2 overflow-x-auto scrollbar-hide pb-0">
+            {TABS.map(tab => (
+              <button key={tab.id} onClick={() => switchTab(tab.id)}
+                className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium
+                             whitespace-nowrap flex-shrink-0 transition-all duration-200 ${
+                  activeTab === tab.id
+                    ? "text-white bg-gradient-to-r from-blue-600 to-purple-600 shadow-md shadow-blue-500/30"
+                    : "text-gray-500 hover:text-gray-900 hover:bg-black/[0.04]"
+                }`}>
+                <span>{tab.icon}</span> {tab.label}
               </button>
             ))}
-          </div>
+          </nav>
+          <div className="h-3" />
         </div>
-      </div>
+      </header>
 
-      {/* Content */}
-      <div className="max-w-4xl mx-auto px-4 py-6">
+      {/* ── Content ── */}
+      <main className="max-w-5xl mx-auto px-6 py-8 pb-20">
         {loading && (
           <div className="flex items-center justify-center h-64">
-            <div className="animate-spin w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full" />
+            <div className="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
           </div>
         )}
         {error && (
-          <div className="bg-red-50 text-red-700 rounded-2xl p-6">
-            <p className="font-semibold">Failed to load data.json</p>
-            <p className="text-sm mt-1">{error}</p>
-            <p className="text-sm mt-2">Run <code className="bg-red-100 px-1 rounded">python3 scripts/update_data.py</code> to generate it.</p>
+          <div className="bg-red-50 border border-red-200 rounded-2xl p-6 text-red-700">
+            <p className="font-semibold">Failed to load data.json: {error}</p>
+            <p className="text-sm mt-2">
+              Run <code className="bg-red-100 px-1.5 py-0.5 rounded font-mono text-xs">python3 scripts/update_data.py</code> to generate it,
+              then refresh.
+            </p>
           </div>
         )}
-        {!loading && !error && data && (
+
+        {!loading && (
           <>
-            {activeTab === "Portfolio" && <PortfolioTab portfolio={data.portfolio} fx={data.fx} />}
-            {activeTab === "Markets" && <MarketsTab markets={data.markets} fx={data.fx} />}
-            {activeTab === "Overview" && <OverviewTab data={data} />}
-            {["Regulation", "Countries", "SAP"].includes(activeTab) && (
-              <PlaceholderTab name={activeTab} />
-            )}
+            {activeTab === "overview"   && <OverviewTab   data={data} />}
+            {activeTab === "portfolio"  && <PortfolioTab  data={data} />}
+            {activeTab === "markets"    && <MarketsTab    data={data} />}
+            {activeTab === "regulation" && <RegulationTab />}
+            {activeTab === "country"    && <CountryTab    />}
+            {activeTab === "sap"        && <SapTab        />}
           </>
         )}
-      </div>
-    </div>
-  );
-}
+      </main>
 
-function OverviewTab({ data }) {
-  const p = data.portfolio;
-  const fmt = (n) => n ? n.toLocaleString("es-AR", { maximumFractionDigits: 0 }) : "—";
-  const pct = (n) => n != null ? `${n > 0 ? "+" : ""}${n.toFixed(2)}%` : "—";
-  const color = (n) => n > 0 ? "text-green-600" : n < 0 ? "text-red-500" : "text-gray-600";
-
-  return (
-    <div className="space-y-4">
-      <div className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-3xl p-6 text-white">
-        <p className="text-blue-100 text-sm mb-1">Total Portfolio</p>
-        <p className="text-3xl font-bold">${fmt(p.total_usd_mep)} USD</p>
-        <p className="text-blue-100 text-sm mt-1">ARS {fmt(p.total_ars)}</p>
-        <div className="grid grid-cols-3 gap-4 mt-4">
-          {[
-            { label: "Today", pct: p.daily_gain_pct, abs: p.daily_gain_ars },
-            { label: "MTD", pct: p.mtd_gain_pct, abs: p.mtd_gain_ars },
-            { label: "YTD", pct: p.ytd_gain_pct, abs: p.ytd_gain_ars },
-          ].map((g) => (
-            <div key={g.label} className="bg-white/15 rounded-xl p-3 text-center">
-              <p className="text-blue-100 text-xs">{g.label}</p>
-              <p className={`text-lg font-bold ${g.pct >= 0 ? "text-green-300" : "text-red-300"}`}>
-                {pct(g.pct)}
-              </p>
-              <p className="text-blue-100 text-xs">{g.abs >= 0 ? "+" : ""}${fmt(g.abs)}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function PlaceholderTab({ name }) {
-  return (
-    <div className="bg-gray-50 rounded-2xl p-8 text-center text-gray-400">
-      <p className="text-lg font-medium">{name}</p>
-      <p className="text-sm mt-1">Content coming soon</p>
+      {/* ── Footer ── */}
+      <footer className="border-t border-black/[0.06] bg-white/70 px-6 py-5 flex justify-between items-center flex-wrap gap-2">
+        <span className="text-xs text-gray-400">
+          <strong className="text-gray-500">SAP ERM · Morning Brief v5.0</strong> · All data sourced and cited · Feb 27 2026
+        </span>
+        <span className="text-xs text-gray-400">07:00 ART · Buenos Aires</span>
+      </footer>
     </div>
   );
 }
