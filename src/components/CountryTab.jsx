@@ -3,8 +3,8 @@ import { HeroCard, Card, TintBox, TintRow } from "./UI";
 export default function CountryTab() {
   return (
     <div className="space-y-6 fade-up">
-      <HeroCard gradient="gradient-indigo" icon="🌐" title="Geopolitics & Macro Overview — War Day 48">
-        US-Iran war enters week 8. Ceasefire holding but expires ~April 22 — no confirmed date for 2nd round talks.
+      <HeroCard gradient="gradient-indigo" icon="🌐" title="Geopolitics — War Day 51 · CRITICAL ESCALATION — Ceasefire Expires Wed">
+        MAXIMUM TENSION. US seized Iranian cargo ship MV Touska (Sun). Iran re-closed Hormuz. Tehran: "no plans for talks." Ceasefire expires WEDNESDAY. Vance heading to Islamabad but Iran unconfirmed. Brent +6% to ~$97.
         S&P 500 and Nasdaq hit all-time records on Apr 16 anyway, pricing in eventual resolution. Macron/Starmer
         Hormuz coalition summit happening today (40 nations, strictly defensive mission). Argentina recovering:
         country risk ~560 from 633 peak, April agro harvest supporting BCRA reserves. Brazil with BRL strength, Ibovespa near ATH, and Selic carry

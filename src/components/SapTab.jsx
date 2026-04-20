@@ -12,11 +12,9 @@ function SapItem({ color = "", title, children }) {
 export default function SapTab() {
   return (
     <div className="space-y-6 fade-up">
-      <HeroCard gradient="gradient-blue" icon="🔷" title="SAP & Industry Intelligence — Apr 17, 2026">
+      <HeroCard gradient="gradient-blue" icon="🔷" title="SAP Intelligence — Apr 20 · Gulf Pipeline Re-Freezing · Q1 Late April">
         SAP Q1 2026 results expected <strong>late April</strong>. BofA target $308 (+60% upside) — reiterated
-        March 18. Gulf pipeline (Aramco, QatarEnergy, ADNOC) unfreezing after 48-day freeze. Post-war capex
-        supercycle is the largest enterprise IT opportunity since 2022. EU AI Act 107-day deadline is the active
-        constraint on Joule EU deployment. Legal decision required this week.
+        March 18. Gulf pipeline re-FREEZING on escalation — MV Touska seizure + Hormuz re-closure puts Aramco/QatarEnergy/ADNOC procurement back on hold. SAP Q1 results due late April — watch cloud commentary. EU AI Act 104-day deadline is the active constraint. Do not send Gulf proposals today; prep and hold.
       </HeroCard>
 
       <WideCard title="SAP Key Developments">

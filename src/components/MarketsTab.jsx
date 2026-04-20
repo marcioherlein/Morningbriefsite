@@ -56,8 +56,8 @@ export default function MarketsTab({ data }) {
         />
       </div>
 
-      <Alert type="green" icon="🟢">
-        <strong className="text-gray-900">Record Close Apr 16:</strong> S&P 500 at 7,022 and Nasdaq at 24,890 both closed at all-time highs. Mag7 +18% from Mar 30 low. TSMC Q1 beat: +35% revenue, +58% earnings, guided full-year +30%. Markets pricing in Iran deal despite active naval blockade. Key risk: ceasefire expires ~April 22 and second-round talks have no confirmed date.
+      <Alert type="red" icon="🚨">
+        <strong className="text-gray-900">Escalation Weekend (Apr 19–20):</strong> Iran fired on French/British vessels → US seized MV Touska (900ft cargo ship, Gulf of Oman) → Iran re-closed Hormuz → ceasefire expires Wed. S&P futures −1%. Brent +6% to ~$97 reversing Friday's 9% plunge. The "Hormuz open" trade from Friday is now completely reversed. Ceasefire collapse = Brent back to $110+, S&P corrects 5-8% from ATH.
       </Alert>
 
       <SectionLabel>Argentina</SectionLabel>
@@ -99,30 +99,31 @@ export default function MarketsTab({ data }) {
           note="BCB watch China disinflationary exports" />
       </div>
 
-      <WideCard title="Portfolio Signals — April 17">
-        <SignalRow ticker="NVDA / TSM" move="+8–22% YTD" moveStyle="up">
-          TSM Q1: revenue +35%, earnings +58%, full-year guidance +30%. NVDA Ising (quantum AI) launched
-          Apr 14. Both recovering from war lows. NVDA May 20 earnings is the next major catalyst.
+      <WideCard title="Portfolio Signals — April 20 🚨">
+        <SignalRow ticker="SPY / QQQ / DIA" move="Futures −1%" moveStyle="down">
+          Gap-down open expected. ATH was 7,022 (S&P) and Dow 49,447. Do NOT add here — wait for
+          ceasefire clarity by Thursday. This is either a buying dip (if Islamabad works) or the
+          start of a 5-8% correction (if ceasefire collapses).
         </SignalRow>
-        <SignalRow ticker="SPY / QQQ" move="ATH" moveStyle="up">
-          S&P 500 and Nasdaq at new all-time records. Mag7 +18% from March 30 low. Maintain positions —
-          ceasefire expiry April 22 is the near-term risk. Hold, don't add at record highs.
+        <SignalRow ticker="NVDA / TSM" move="Watch open" moveStyle="down">
+          Tech names down in pre-market on risk-off. Structurally intact — TSMC Q1 +35%/+58% still
+          the strongest semiconductor print in years. NVDA May 20 catalyst intact. Hold; don't add into
+          this uncertainty.
         </SignalRow>
-        <SignalRow ticker="NU / STNE / PAGS" move="+22–28% YTD" moveStyle="up">
-          Brazil fintech cluster performing strongly on EM risk-on + BRL stability. NU guided +30%
-          revenue growth 2026. Selic at 15% = strong net interest margins.
+        <SignalRow ticker="VIST / YPFD / PBR" move="Brent +6% hedge" moveStyle="up">
+          Your remaining energy stub is doing its job today. Brent back to $97 after Friday's 9% crash.
+          The trim you did at $96-102 was correct. Keep the stub as Scenario 3 insurance through Wed.
         </SignalRow>
-        <SignalRow ticker="VIST / YPFD" move="−2 to −6% MTD" moveStyle="down">
-          Energy trimmed correctly post-ceasefire. Brent fell from $119 peak to $96. Keep remaining
-          25–30% stub as hedge — ceasefire could still collapse by April 22.
+        <SignalRow ticker="NU / STNE / PAGS" move="EM risk-off watch" moveStyle="flat">
+          Brazil fintech at risk if EM sentiment deteriorates on ceasefire collapse. BRL may weaken.
+          Monitor closely — if S&P corrects 5%+, Brazil cluster follows with leverage.
         </SignalRow>
-        <SignalRow ticker="GGAL / GD38" move="+11% YTD (bonds)" moveStyle="up">
-          Country risk compressing from 633 → 560. GGAL still −15% below analyst target of $66–72.
-          Add if country risk breaks 530 bps.
+        <SignalRow ticker="GD38 / GGAL" move="Risk-off caution" moveStyle="flat">
+          Argentina bonds and financials vulnerable to EM risk-off. Country risk may tick back up from
+          ~560. GGAL add threshold unchanged: wait for 530 bps, now moving away not toward it.
         </SignalRow>
-        <SignalRow ticker="BABA / JD" move="+38 / +27% YTD" moveStyle="up">
-          China tech cluster outperforming on EM rotation and AI spending confirmation. Small
-          positions — continue to hold.
+        <SignalRow ticker="BABA / JD" move="Hold" moveStyle="flat">
+          China names provide some diversification. Hold small positions — no action needed today.
         </SignalRow>
       </WideCard>
     </div>

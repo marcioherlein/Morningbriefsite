@@ -1,12 +1,15 @@
 {
-  "_comment": "Morning Brief April 17, 2026 — War Day 48 — S&P/Nasdaq ATH — Hormuz Summit TODAY",
+  "_comment": "Morning Brief April 20, 2026 — War Day 51 — Ship seized, Hormuz re-closed, ceasefire expires Wed",
   "meta": {
-    "updated_at": "2026-04-17 07:00:00 ART",
-    "updated_iso": "2026-04-17T07:00:00-03:00",
-    "session": "morning"
+    "updated_at": "2026-04-20 07:00:00 ART",
+    "updated_iso": "2026-04-20T07:00:00-03:00",
+    "session": "morning",
+    "war_day": 51,
+    "status": "escalation_critical",
+    "headline": "US SEIZES IRAN SHIP · Hormuz RE-CLOSED · Ceasefire Expires WED · Vance to Islamabad · S&P Futures −1%"
   },
   "fx": {
-    "usd_mep": 1160.0,
+    "usd_mep": 1162.0,
     "gd30_ars": 90300,
     "gd30_usd": 82.2
   },
@@ -697,28 +700,40 @@
   "markets": {
     "sp500": {
       "price": 7022.0,
-      "prev_close": 6987.0,
-      "pct_change": 0.5
+      "prev_close": 7065.0,
+      "pct_change": -0.61
     },
     "nasdaq": {
       "price": 24890.0,
-      "prev_close": 24731.0,
-      "pct_change": 0.64
+      "prev_close": 25060.0,
+      "pct_change": -0.68
     },
     "dow": {
-      "price": 48620.0,
-      "prev_close": 48540.0,
-      "pct_change": 0.16
+      "price": 49447.0,
+      "prev_close": 49940.0,
+      "pct_change": -0.99
     },
     "merval": {
       "price": 3180000,
-      "prev_close": 3152000,
-      "pct_change": 0.89
+      "prev_close": 3190000,
+      "pct_change": -0.31
     },
     "usdbrl": {
-      "price": 5.81,
-      "prev_close": 5.78,
+      "price": 5.83,
+      "prev_close": 5.8,
       "pct_change": 0.52
     }
+  },
+  "geopolitics": {
+    "war_day": 51,
+    "ceasefire_status": "CRITICAL — expires Wednesday April 22",
+    "key_event_today": "Vance/Witkoff/Kushner traveling to Islamabad. Iran FM: \"no plans for talks.\" Ceasefire expires Wed.",
+    "brent": 97.0,
+    "brent_note": "Surged 6-7% Sunday on ship seizure after plunging 9% Friday on Hormuz \"open\" signal",
+    "hormuz_status": "RE-CLOSED by Iran Saturday — zero tankers Sunday — US blockade of Iranian ports continues",
+    "ship_seizure": "USS Spruance seized MV Touska (Iranian, ~900ft cargo) in Gulf of Oman, Sun Apr 19",
+    "iran_response": "Vowed retaliation. FM: no talks. IRGC: \"act of maritime piracy\"",
+    "second_round_talks": "Vance/Witkoff/Kushner heading to Islamabad TODAY. Iran has NOT confirmed attendance.",
+    "trump_threat": "\"Knock out every Power Plant and Bridge in Iran\" if no deal"
   }
 }
