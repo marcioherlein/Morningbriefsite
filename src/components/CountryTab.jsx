@@ -3,9 +3,11 @@ import { HeroCard, Card, TintBox, TintRow } from "./UI";
 export default function CountryTab() {
   return (
     <div className="space-y-6 fade-up">
-      <HeroCard gradient="gradient-indigo" icon="🌐" title="Geopolitics & Macro Overview">
-        Three jurisdictions dominate today's picture: US equity markets under PPI inflation pressure with tariff
-        legal uncertainty; Brazil as the standout positive with BRL strength, Ibovespa near ATH, and Selic carry
+      <HeroCard gradient="gradient-indigo" icon="🌐" title="Geopolitics & Macro Overview — War Day 48">
+        US-Iran war enters week 8. Ceasefire holding but expires ~April 22 — no confirmed date for 2nd round talks.
+        S&P 500 and Nasdaq hit all-time records on Apr 16 anyway, pricing in eventual resolution. Macron/Starmer
+        Hormuz coalition summit happening today (40 nations, strictly defensive mission). Argentina recovering:
+        country risk ~560 from 633 peak, April agro harvest supporting BCRA reserves. Brazil with BRL strength, Ibovespa near ATH, and Selic carry
         driving your fintech cluster higher; and Argentina with a reserve accumulation story that is diverging from
         a rising country risk premium. Oil above $71 supports VIST and PBR. US-Iran nuclear talks in Geneva today.
       </HeroCard>

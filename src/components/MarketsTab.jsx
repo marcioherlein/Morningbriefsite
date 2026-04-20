@@ -21,11 +21,11 @@ export default function MarketsTab({ data }) {
 
   return (
     <div className="space-y-6 fade-up">
-      <HeroCard gradient="gradient-amber" icon="⚡" title="Markets — Risk-Off Friday Morning">
-        January PPI +0.5% MoM vs +0.3% expected. Core PPI +0.8% vs +0.3%. US futures gapped down at open.
-        All three benchmarks (S&P, Nasdaq, Dow) are in the red for February. VIX above 21. Brazil is a
-        bright spot: Ibovespa near ATH at 191K and BRL at strongest since May 2024. Argentina has record
-        BCRA reserves but country risk approaching 600 bps.
+      <HeroCard gradient="gradient-green" icon="📈" title="Markets — S&P 500 & Nasdaq at All-Time Highs · War Day 48">
+        S&P 500 at <strong>7,022</strong> (record) · Nasdaq at <strong>24,890</strong> (record). +9.8% in 10 sessions —
+        fastest rebound since COVID 2020. TSMC Q1: revenue +35%, earnings +58%. AI demand confirmed. Brent ~$96, still
+        elevated. VIX below 20. Second round US-Iran talks: no date set but expected soon. Ceasefire expires ~April 22.
+        Macron/Starmer Hormuz coalition summit happening today (40 nations).
       </HeroCard>
 
       <SectionLabel>US Equities</SectionLabel>
@@ -56,8 +56,8 @@ export default function MarketsTab({ data }) {
         />
       </div>
 
-      <Alert type="red" icon="🔴">
-        <strong className="text-gray-900">PPI Inflation Shock (Fri 27 Feb):</strong> January PPI +0.5% MoM vs +0.3% consensus. Core PPI +0.8% vs +0.3%. Highest core reading since mid-2024. Fed March cut probability has collapsed to ~0%. Futures gap-down opened: S&P −0.6%, Nasdaq −0.7%, Dow −1.1%. This directly pressures SPY, QQQ, DIA CEDEARs — your three largest ETF positions.
+      <Alert type="green" icon="🟢">
+        <strong className="text-gray-900">Record Close Apr 16:</strong> S&P 500 at 7,022 and Nasdaq at 24,890 both closed at all-time highs. Mag7 +18% from Mar 30 low. TSMC Q1 beat: +35% revenue, +58% earnings, guided full-year +30%. Markets pricing in Iran deal despite active naval blockade. Key risk: ceasefire expires ~April 22 and second-round talks have no confirmed date.
       </Alert>
 
       <SectionLabel>Argentina</SectionLabel>
@@ -67,18 +67,18 @@ export default function MarketsTab({ data }) {
           change={markets.merval?.pct_change ? pctStr(markets.merval.pct_change) : "▲ +0.3% ARS Thu"}
           note="Flat for February overall" />
         <TickerCard label="Country Risk EMBI" color="c-amber"
-          value="554 bps" change="▲ +9 vs 25 Feb"
-          note="Approaching 600 — repricing" />
-        <TickerCard label="USD/ARS Oficial" color="c-blue"
-          value="~1,380" change="▼ MTD −4.9%"
-          note="16% below band ceiling $1,595" />
+          value="~560 bps" change="▼ From 633 peak"
+          note="Compressing on ceasefire + agro season" />
+        <TickerCard label="USD/ARS MEP" color="c-blue"
+          value="~1,160" change="Stable in band"
+          note="Well below band ceiling — BCRA buying" />
         <TickerCard label="BCRA Reservas" color="c-teal"
-          value="$46.9B" change="▲ +$2.64B YTD"
-          note="Highest since Oct 2019 · 37 buying sessions" />
+          value="~$46B" change="▲ April agro harvest"
+          note="Soybean liquidation season — peak buying" />
       </div>
 
-      <Alert type="amber" icon="⚡">
-        <strong className="text-gray-900">Divergence:</strong> Country risk rising toward 600 bps even as reserves hit 6-year high. Bond prices declining (GD38 −0.5%) despite BCRA strength — political risk being priced ahead of June coupon cycle. CCL ~1,440 · spread vs oficial ~4.4%.{" "}
+      <Alert type="green" icon="⚡">
+        <strong className="text-gray-900">Argentina recovery on track:</strong> Country risk compressing from 633 peak toward 560 on ceasefire + April soybean liquidation. GD38 +11.2% YTD. GGAL + BMA re-rating as credit spreads tighten. BCRA buying dollars daily in agro season — historically the best month for AR assets.{" "}
         {fx.usd_mep && <>Dólar MEP <strong className="text-gray-900">~${fmt(fx.usd_mep)}</strong>.</>}
       </Alert>
 
@@ -99,30 +99,30 @@ export default function MarketsTab({ data }) {
           note="BCB watch China disinflationary exports" />
       </div>
 
-      <WideCard title="Portfolio Signals Today">
-        <SignalRow ticker="NVDA" move="~−8%" moveStyle="down">
-          Beat Q4 ($68.1B sales) but market sold the news — hyperscaler capex sustainability questioned.
-          Broadcom, Oracle, MSFT each −2.5%. Down ~8% over 2 sessions.
+      <WideCard title="Portfolio Signals — April 17">
+        <SignalRow ticker="NVDA / TSM" move="+8–22% YTD" moveStyle="up">
+          TSM Q1: revenue +35%, earnings +58%, full-year guidance +30%. NVDA Ising (quantum AI) launched
+          Apr 14. Both recovering from war lows. NVDA May 20 earnings is the next major catalyst.
         </SignalRow>
-        <SignalRow ticker="SPY / QQQ / DIA" move="Gap-Down" moveStyle="down">
-          PPI shock directly pressures these three ETF positions (~28.5M ARS combined). US futures
-          gap-down. Consider this your largest single risk factor today.
+        <SignalRow ticker="SPY / QQQ" move="ATH" moveStyle="up">
+          S&P 500 and Nasdaq at new all-time records. Mag7 +18% from March 30 low. Maintain positions —
+          ceasefire expiry April 22 is the near-term risk. Hold, don't add at record highs.
         </SignalRow>
-        <SignalRow ticker="NU / STNE / PAGS / BBD" move="BRL +" moveStyle="up">
-          Brazil fintech cluster (~23M ARS) benefits from BRL at 21-month high and 15% Selic carry.
-          Ibovespa commodity weighting insulates from Nasdaq AI selloff.
+        <SignalRow ticker="NU / STNE / PAGS" move="+22–28% YTD" moveStyle="up">
+          Brazil fintech cluster performing strongly on EM risk-on + BRL stability. NU guided +30%
+          revenue growth 2026. Selic at 15% = strong net interest margins.
         </SignalRow>
-        <SignalRow ticker="YPFD / VIST" move="Mixed" moveStyle="flat">
-          YPF ADR +0.3% at $36.54 Thu. Q4 net loss $799M FY2025 published. Brent above $71 provides
-          support. VIST monitor amid energy sector volatility.
+        <SignalRow ticker="VIST / YPFD" move="−2 to −6% MTD" moveStyle="down">
+          Energy trimmed correctly post-ceasefire. Brent fell from $119 peak to $96. Keep remaining
+          25–30% stub as hedge — ceasefire could still collapse by April 22.
         </SignalRow>
-        <SignalRow ticker="BABA / JD" move="Tariff risk" moveStyle="down">
-          US-China tariff trajectory in legal flux. USTR Greer signaling 35–50% China tariffs via new
-          legal authority. Both names carry elevated tariff risk.
+        <SignalRow ticker="GGAL / GD38" move="+11% YTD (bonds)" moveStyle="up">
+          Country risk compressing from 633 → 560. GGAL still −15% below analyst target of $66–72.
+          Add if country risk breaks 530 bps.
         </SignalRow>
-        <SignalRow ticker="S16M6 Letes" move="Action needed" moveStyle="flat">
-          Mature March 16. CCL spread ~4.4% narrows ARS carry advantage. Decide: rollover into new
-          letes, FCI, or USD conversion. Window is 2 weeks.
+        <SignalRow ticker="BABA / JD" move="+38 / +27% YTD" moveStyle="up">
+          China tech cluster outperforming on EM rotation and AI spending confirmation. Small
+          positions — continue to hold.
         </SignalRow>
       </WideCard>
     </div>

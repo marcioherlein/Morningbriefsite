@@ -36,12 +36,12 @@ export default function RegulationTab() {
       <HeroCard gradient="gradient-amber" icon="⚠️" title="Regulatory Watchdog — EU & US">
         Nine active or approaching regulatory obligations tracked across EU AI Act, Cyber Resilience Act,
         NIS2, Data Act, DORA, GDPR, Digital Networks Act, Cloud & AI Development Act, and US Export Controls.
-        The most urgent is the EU AI Act HRAI compliance deadline on August 2, 2026 (157 days) — with the
+        The most urgent is the EU AI Act HRAI compliance deadline on August 2, 2026 (107 days) — with the
         Commission having already missed its own guidance deadline. No blanket extension is currently law.
       </HeroCard>
 
       <RegItem urgency="Urgent" framework="EU AI Act"
-        deadline="Aug 2, 2026 — 157 days" deadlineColor="red"
+        deadline="Aug 2, 2026 — 107 days" deadlineColor="red"
         title="HRAI Compliance Deadline: 2 August 2026. Commission Missed Feb 2 Guidance Deadline. No Extension is Law."
         sources="IAPP Feb 2026 · AI2Work Feb 17 2026 · Bird & Bird Dec 2025"
         badges={[<DeadlineBadge color="red">HRAI: Aug 2 2026</DeadlineBadge>]}>
@@ -58,7 +58,7 @@ export default function RegulationTab() {
           <DeadlineBadge color="teal">CABs: Jun 11 2026</DeadlineBadge>,
           <DeadlineBadge color="amber">Reporting: Sep 11 2026</DeadlineBadge>
         ]}>
-        <p><strong className="text-gray-900">Status:</strong> CRA entered into force Dec 10, 2024. First conformity assessment bodies (CABs) operational from <strong className="text-gray-900">June 11, 2026</strong> (3.5 months). Mandatory vulnerability reporting live from <strong className="text-gray-900">September 11, 2026</strong>. Manufacturers must report: actively exploited vulnerabilities (24h early warning, 72h full notification, 14-day final report).</p>
+        <p><strong className="text-gray-900">Status:</strong> CRA entered into force Dec 10, 2024. First conformity assessment bodies (CABs) operational from <strong className="text-gray-900">June 11, 2026</strong> (55 days). Mandatory vulnerability reporting live from <strong className="text-gray-900">September 11, 2026</strong>. Manufacturers must report: actively exploited vulnerabilities (24h early warning, 72h full notification, 14-day final report).</p>
         <p><strong className="text-gray-900">Jan 2026 cybersecurity package:</strong> Commission proposed revised Cybersecurity Act (CSA2) and targeted NIS2 amendments on Jan 20. Key improvement: a <strong className="text-gray-900">single-entry incident reporting point</strong> via ENISA satisfying GDPR, NIS2, DORA, CER, and CRA simultaneously.</p>
         <p><strong className="text-gray-900">SBOMs required:</strong> Comprehensive software bill of materials for all digital products. Full obligations: <strong className="text-gray-900">December 11, 2027</strong>.</p>
       </RegItem>

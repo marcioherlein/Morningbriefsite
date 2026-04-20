@@ -12,12 +12,11 @@ function SapItem({ color = "", title, children }) {
 export default function SapTab() {
   return (
     <div className="space-y-6 fade-up">
-      <HeroCard gradient="gradient-blue" icon="🔷" title="SAP & Industry Intelligence">
-        SAP Q4/FY2025 reported January 29: Cloud strong but Current Cloud Backlog missed badly (16% vs 26%
-        expected) — shares fell 14% on the day, the largest single-day drop since October 2020. Root cause:
-        large sovereign cloud deals with government termination-for-convenience clauses excluded from backlog
-        by accounting definition. CFO explicitly named sovereignty demand as a deal cycle lengthener. This is
-        your core ERM risk context for 2026.
+      <HeroCard gradient="gradient-blue" icon="🔷" title="SAP & Industry Intelligence — Apr 17, 2026">
+        SAP Q1 2026 results expected <strong>late April</strong>. BofA target $308 (+60% upside) — reiterated
+        March 18. Gulf pipeline (Aramco, QatarEnergy, ADNOC) unfreezing after 48-day freeze. Post-war capex
+        supercycle is the largest enterprise IT opportunity since 2022. EU AI Act 107-day deadline is the active
+        constraint on Joule EU deployment. Legal decision required this week.
       </HeroCard>
 
       <WideCard title="SAP Key Developments">

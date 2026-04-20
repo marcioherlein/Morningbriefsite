@@ -7,81 +7,91 @@ export default function OverviewTab({ data }) {
 
   return (
     <div className="space-y-6 fade-up">
-      <HeroCard gradient="gradient-blue" icon="✨" title="Good Morning — Here's Your Daily Brief">
-        US equity futures are sharply lower this morning following a PPI inflation shock: January PPI came
-        in at +0.5% MoM vs +0.3% expected, with core PPI at +0.8% vs +0.3%. All three US benchmarks are
-        in the red for February. On the positive side, your Brazil-exposed positions are benefiting from
-        the BRL at a 21-month high, and your Argentine utility and energy holdings remain solid amid record
-        BCRA reserve accumulation. Nine EU regulatory deadlines are active or approaching within 6 months
-        — requiring action today.
+      <HeroCard gradient="gradient-green" icon="🕊️" title="War Day 48 — S&P & Nasdaq at All-Time Highs Despite Active War">
+        The market has done something remarkable: <strong>S&P 500 and Nasdaq closed at record highs on April 16</strong>,
+        up 9.8% in 10 sessions — the fastest 10-session rebound since the COVID bounce in 2020. Hormuz is still
+        blocked, oil is still at $96 Brent, and the ceasefire expires in ~5 days. Markets are pricing in an
+        eventual deal. Today's catalysts: <strong>Macron/Starmer Hormuz coalition summit (40 nations, RIGHT NOW)</strong>
+        and Trump saying the war is "very close to over." Second round of US-Iran talks has no date set but
+        Pakistan is actively mediating.
       </HeroCard>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        <Card title="Market Sentiment" icon="📈" pill="Risk-Off" pillStyle="pill-down">
-          US futures gap-down Friday morning: S&P −0.6%, Nasdaq −0.7%, Dow −1.1%. Catalyst is the Jan PPI
-          inflation surprise. VIX above 21 — elevated anxiety. Fed March cut probability now ~0%. Your SPY
-          and QQQ CEDEARs are the largest exposure to this selloff at combined ~24.5M ARS. Brazil
-          (Ibovespa near ATH at 191K) and Argentina (Merval flat for February) are holding.
+        <Card title="Market Regime — ATH Despite War" icon="📈" pill="New All-Time High" pillStyle="pill-up">
+          S&P 500 at ~7,022 (+0.5% Thu) — <strong className="text-gray-900">new record</strong>. Nasdaq at ~24,890
+          — <strong className="text-gray-900">new record</strong>. The 9.8% 10-session surge was faster than
+          post-Liberation Day 2025. Mag7 up ~18% from the March 30 low. TSMC Q1: revenue +35%, earnings +58% —
+          AI demand confirmed unstoppable. Trump: Iran war "very close to over." Brent ~$96, still +37% YTD.
+          IMF cut 2026 GDP to 3.1%, raised inflation to 4.4%. VIX back below 20.
         </Card>
 
         <Card title="Portfolio Snapshot" icon="💼" pill={`~${totalArs}M ARS`} pillStyle="pill-blue">
-          Total portfolio value approximately {totalArs}M ARS / ${totalUsd} USD MEP. Largest CEDEAR positions:
-          SPY (16.2M), NU (9.8M), QQQ (8.3M), PAGS (7.5M), TSM (6.7M). Brazil fintech/banking cluster
-          (NU, STNE, PAGS, BBD, EWZ) benefiting from BRL strength. NVDA down ~8% over 2 sessions
-          post-earnings. S16M6 letes mature March 16 — rollover decision needed within 2 weeks.
+          Portfolio ~{totalArs}M ARS / ~${totalUsd} USD MEP. Tech recovery driving gains: TSM +22.5% YTD,
+          NU +22% YTD, NVDA +8.2% YTD (recovering from war lows). Energy positions trimmed correctly — VIST
+          −2.1% MTD, YPFD −5.8% MTD as Brent retreats from $119 peak. Brazil fintech cluster (NU, STNE, PAGS)
+          strong on EM risk-on. Argentina bonds (GD38 +11.2% YTD) recovering as country risk compresses
+          toward 560 bps from 633 peak.
         </Card>
 
-        <Card title="Regulatory Alert" icon="⚖️" pill="6 Active" pillStyle="pill-amber">
-          EU AI Act HRAI compliance deadline is <strong className="text-gray-900">August 2, 2026</strong> — 157 days.
-          Commission missed its own Feb 2 guidance deadline. CRA vulnerability reporting goes live{" "}
-          <strong className="text-gray-900">September 11, 2026</strong>. Germany NIS2 registration deadline is{" "}
-          <strong className="text-gray-900">~April 2026</strong> (3 months). DORA is in active enforcement.
-          GDPR coordinated enforcement on transparency obligations is running now. No blanket extensions
-          are law yet.
+        <Card title="⚠️ Regulatory Urgency" icon="⚖️" pill="107 Days to Aug 2" pillStyle="pill-red">
+          <strong className="text-gray-900">EU AI Act HRAI: 107 days</strong> to August 2. Legal strategy
+          decision overdue — extension request, pause Joule EU HR/Finance, or accept risk with mitigation.
+          Gulf clients resuming = Joule pipeline accelerating = non-compliance in Q3 would be maximally
+          painful. <strong className="text-gray-900">CRA CABs: 55 days</strong> to June 11. NIS2 Germany
+          BSI — confirm filed.
         </Card>
 
-        <Card title="Geopolitical Update" icon="🌐" pill="Flux" pillStyle="pill-amber">
-          SCOTUS struck IEEPA tariffs Feb 20; Trump signed new 10% global tariff EO same day under
-          alternate authority. USTR Greer signaling 35–50% China tariffs via yet another legal vehicle.
-          Affects BABA and JD CEDEARs. BRL at strongest since May 2024 (5.14) on R$33B+ foreign inflows
-          and 15% Selic carry. Argentine country risk approaching 600 bps despite record $46.9B BCRA
-          reserves.
+        <Card title="🌍 Geopolitics — Ceasefire Expires ~Apr 22" icon="🌐" pill="~5 Days Left" pillStyle="pill-amber">
+          Islamabad talks (Apr 11–12) failed — nuclear enrichment the sticking point. Trump declared US
+          naval blockade of Iranian ports (Apr 13). Iran mines still in Hormuz. <strong className="text-gray-900">
+          Today: Macron/Starmer Paris summit</strong> — 40 nations planning "Freedom of Navigation Initiative"
+          for post-ceasefire Hormuz reopening (strictly defensive, excludes US). Second round of US-Iran talks:
+          no date set but Trump says "looking very good." Ceasefire expires ~April 22.
         </Card>
       </div>
 
-      <WideCard title="Today's Key Actions">
+      <WideCard title="Today's Key Actions — April 17">
         <ul className="space-y-3">
           {[
             {
               text: <>
-                <strong className="text-gray-900">S16M6 Letes (5.2M ARS)</strong> mature March 16 — decide
-                rollover destination vs ARS/USD conversion. CCL spread at 4.4% narrows ARS carry advantage.
+                <strong className="text-gray-900">EU AI Act (107 days) — Legal decision this week.</strong>{" "}
+                With Gulf clients re-engaging and Joule pipeline accelerating post-ceasefire, a Q3 enforcement
+                action would be maximally damaging. Three options: (1) regulatory extension citing Commission's
+                own Feb 2 guidance failure, (2) pause Joule EU HR/Finance deployment, (3) accept non-compliance
+                with documented mitigation. Legal leadership must decide now.
               </>,
             },
             {
               text: <>
-                <strong className="text-gray-900">Germany NIS2 registration</strong> deadline ~April 2026:
-                confirm SAP BSI registration process is underway. 3 months remaining.
+                <strong className="text-gray-900">Ceasefire ~April 22 expiry — Watch for 2nd round of US-Iran talks.</strong>{" "}
+                Trump said Thursday talks are "looking very good." Pakistan is actively mediating. If second
+                round announced before April 22, ceasefire extends and oil falls toward $85. If no talks,
+                oil spikes back toward $110 and markets correct. Key tripwire: Lebanese ceasefire — Israel
+                must halt Lebanon operations for Iran to accept nuclear framework.
               </>,
             },
             {
               text: <>
-                <strong className="text-gray-900">EU AI Act Aug 2 deadline</strong>: confirm Joule AI
-                high-risk classification assessment is complete. Commission missed Article 6 guidance —
-                do not wait for it.
+                <strong className="text-gray-900">Macron/Starmer Hormuz summit happening now.</strong>{" "}
+                40 nations planning "strictly defensive" post-ceasefire maritime mission. Mine-clearing,
+                naval escorts, insurance framework. US excluded. SAP opportunity: Gulf energy clients
+                resuming procurement — energy vertical proposals should be in motion this week.
               </>,
             },
             {
               text: <>
-                <strong className="text-gray-900">NVDA CEDEAR (180 shares, 2.2M ARS)</strong>: down ~8%
-                post-earnings. Decide whether to add on dip or reduce tech concentration given
-                QQQ/SPY/ARKK overlap.
+                <strong className="text-gray-900">NVDA + TSM: ATH regime confirmed.</strong>{" "}
+                TSMC Q1: +35% revenue, +58% earnings. Full-year guidance: +30% revenue. AI capex
+                structurally intact. NVDA Ising quantum AI launched April 14. May 20 NVDA earnings
+                is the next major catalyst. Hold and consider adding on any Iran-related dip.
               </>,
             },
             {
               text: <>
-                <strong className="text-gray-900">CRA CAB notification</strong> deadline June 11, 2026 — 3.5
-                months. Initiate CAB selection process if not started.
+                <strong className="text-gray-900">CRA CABs: 55 days (June 11).</strong>{" "}
+                Initiate CAB selection if not already started. Waiting further reduces available
+                conformity assessment bodies. NIS2 Germany BSI — confirm registration filed.
               </>,
             },
           ].map((item, i) => (
